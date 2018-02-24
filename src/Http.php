@@ -110,6 +110,11 @@ class Http
     protected $fileHandle = null;
 
     /**
+     * @type null
+     */
+    protected $dataCallback = null;
+
+    /**
      * @type array
      */
     protected $opts = [
@@ -275,6 +280,9 @@ class Http
      */
     public function buildPostData($data)
     {
+        if($this->dataCallback != null && $this->dataCallback instanceof \Closure){
+            return $this->dataCallback($data, $this);
+        }
         $binary_data = false;
         if (is_array($data)) {
             // Return JSON-encoded string when the request's content-type is JSON.
@@ -524,6 +532,19 @@ class Http
     public function setDownloadCompleteCallback($downloadCompleteCallback)
     {
         $this->downloadCompleteCallback = $downloadCompleteCallback;
+        return $this;
+    }
+
+    /**
+     * @title 设置JSON的编辑措施
+     * @description 设置JSON的编辑措施
+     * @createtime: 2018/2/24 15:53
+     * @param $jsonCall
+     * @return $this
+     */
+    public function setDataCall($jsonCall)
+    {
+        $this->dataCallback = $jsonCall;
         return $this;
     }
 }

@@ -47,7 +47,7 @@ class Encrypt
         ksort($data);
         $temp = [];
         foreach($data as $i => $v){
-            if(!empty($v)){
+            if(isset($v)){
                 $temp[] = $i . "=" . $v;
             }
         }
