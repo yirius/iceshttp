@@ -1,0 +1,24 @@
+{
+    "name": "yirius/iceshttp",
+    "description": "a new curl http client for tp5.1",
+    "version": "0.1",
+    "type": "think-extend",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yirius",
+            "email": "2951979767@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "iceshttp\\": "src"
+        }
+    },
+    "require": {
+        "topthink/think-helper": ">=1.0.4",
+        "topthink/think-installer": ">=1.0.10"
+    },
+    "extra": {}
+}
